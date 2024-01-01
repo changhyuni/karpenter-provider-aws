@@ -80,6 +80,8 @@ var _ = Describe("KubeletConfiguration Overrides", func() {
 				ImageGCHighThresholdPercent: ptr.Int32(50),
 				ImageGCLowThresholdPercent:  ptr.Int32(10),
 				CPUCFSQuota:                 ptr.Bool(false),
+				ContainerLogMaxSize			 "10Mi",
+				ContainerLogMaxFiles         lo.ToPtr[int32](5),
 			}
 		})
 		DescribeTable("Linux AMIFamilies",

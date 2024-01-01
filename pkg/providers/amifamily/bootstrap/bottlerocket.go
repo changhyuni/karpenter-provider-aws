@@ -77,6 +77,12 @@ func (b Bottlerocket) Script() (string, error) {
 		if b.KubeletConfig.CPUCFSQuota != nil {
 			s.Settings.Kubernetes.CPUCFSQuota = b.KubeletConfig.CPUCFSQuota
 		}
+		if b.KubeletConfig.ContainerLogMaxSize != nil {
+			s.Settings.Kubernetes.ContainerLogMaxSize = &b.KubeletConfig.ContainerLogMaxSize
+		}
+		if b.KubeletConfig.ContainerLogMaxFiles != nil {
+			s.Settings.Kubernetes.ContainerLogMaxFiles = aws.Int(int(ptr.Int32Value(b.KubeletConfig.ContainerLogMaxFiles)))
+		}
 	}
 
 	s.Settings.Kubernetes.NodeTaints = map[string][]string{}

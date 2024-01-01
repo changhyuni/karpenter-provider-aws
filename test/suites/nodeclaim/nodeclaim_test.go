@@ -152,6 +152,8 @@ var _ = Describe("StandaloneNodeClaim", func() {
 					EvictionMaxPodGracePeriod:   lo.ToPtr[int32](120),
 					ImageGCHighThresholdPercent: lo.ToPtr[int32](50),
 					ImageGCLowThresholdPercent:  lo.ToPtr[int32](10),
+					ContainerLogMaxSize			 "10Mi",
+					ContainerLogMaxFiles         lo.ToPtr[int32](5),
 				},
 				NodeClassRef: &corev1beta1.NodeClassReference{
 					Name: nodeClass.Name,

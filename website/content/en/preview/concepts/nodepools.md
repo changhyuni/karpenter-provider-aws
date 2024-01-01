@@ -115,6 +115,8 @@ spec:
         evictionMaxPodGracePeriod: 60
         imageGCHighThresholdPercent: 85
         imageGCLowThresholdPercent: 80
+        containerLogMaxSize: 10Mi
+        containerLogMaxFiles: 5
         cpuCFSQuota: true
         podsPerCore: 2
         maxPods: 20

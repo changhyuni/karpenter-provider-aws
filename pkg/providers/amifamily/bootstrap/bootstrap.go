@@ -75,6 +75,12 @@ func (o Options) kubeletExtraArgs() (args []string) {
 	if o.KubeletConfig.CPUCFSQuota != nil {
 		args = append(args, fmt.Sprintf("--cpu-cfs-quota=%t", lo.FromPtr(o.KubeletConfig.CPUCFSQuota)))
 	}
+	if o.KubeletConfig.ContainerLogMaxSize != nil {
+		args = append(args, fmt.Sprintf("--container-log-max-size=%d", o.KubeletConfig.ContainerLogMaxSize))
+	}
+	if o.KubeletConfig.ContainerLogMaxFiles != nil {
+		args = append(args, fmt.Sprintf("--container-log-max-files=%d", ptr.Int32Value(o.KubeletConfig.ContainerLogMaxFiles)))
+	}
 	return lo.Compact(args)
 }
 
